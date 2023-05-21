@@ -79,6 +79,7 @@ tasks.shadowJar.configure {
 tasks.withType(JavaCompile).configureEach {
 
     options.compilerArgs += ["-parameters"]
+    options.compilerArgs.add("-Xlint:deprecation")
     options.encoding = 'UTF-8' // Override the system character set with a universal set.
     options.fork = true // Enable compilation in a separate daemon process.
 

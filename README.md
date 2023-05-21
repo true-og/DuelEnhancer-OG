@@ -1,6 +1,10 @@
-# Buy-OG
+# DuelEnhancer-OG
 
-A chat-based drop-in replacement for CraftingStore's /buy GUI built for [TrueOG](https://trueog.net/). 
+An extension to [Duels](https://github.com/Realizedd/Duels) by [Realizedd](https://github.com/Realizedd) made for https://trueog.net.
+
+Features:
+
+- When a Duel spectator is put into survival mode (presumably by worldguard), they will be removed from spectating the match and teleported back to their original location.
 
 Gradle Version: 8.1.1
 
@@ -8,4 +12,4 @@ Java Version: 17
 
 Minecraft API: 1.18.2
 
-Buy-OG is public domain software released under the terms of [The Unlicense](https://github.com/NotAlexNoyle/Buy-OG/blob/main/LICENSE).
+DuelEnhancer-OG is public domain software released under the terms of [The Unlicense](https://github.com/NotAlexNoyle/DuelEnhancer-OG/blob/main/LICENSE).

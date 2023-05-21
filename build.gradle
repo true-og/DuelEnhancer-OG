@@ -6,7 +6,7 @@ plugins {
 
 }
 
-group = 'net.trueog.buy-og' // Declare bundle identifier.
+group = 'net.trueog.duelenhancer-og' // Declare bundle identifier.
 version = '1.0'
 
 def apiVersion = "1.18.2" // Declare minecraft server target version.
@@ -35,7 +35,15 @@ repositories {
 
     maven {
 
-        url "https://repo.purpurmc.org/snapshots" // Get purpur API from purpur maven repository.
+	name "purpur-repo" // Declare a name for the Purpur repository.
+        url "https://repo.purpurmc.org/snapshots" // Get Purpur API from PurpurMC's Maven repository.
+
+    }
+
+    maven {
+
+	name 'jitpack-repo' // Declare a name for the Jitpack repository.
+        url 'https://jitpack.io' // Import Jitpack repository for Duels API.
 
     }
 
@@ -43,7 +51,8 @@ repositories {
 
 dependencies {
 
-    compileOnly "org.purpurmc.purpur:purpur-api:1.18.2-R0.1-SNAPSHOT" // Declare purpur API version to be packaged.
+    compileOnly "org.purpurmc.purpur:purpur-api:1.18.2-R0.1-SNAPSHOT" // Build the Purpur API.
+    compileOnly 'com.github.Realizedd.Duels:duels-api:3.5.1' // Build the Duels API.
 
 }
 

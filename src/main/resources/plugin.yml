@@ -1,0 +1,12 @@
+name: Buy-OG
+author: NotAlexNoyle
+description: A chat-based drop-in replacement for CraftingStore's /buy GUI
+website: https://github.com/NotAlexNoyle/Buy-OG/
+version: 1.0
+api-version: 1.18
+main: plugin.BuyOG
+
+commands:
+  buy:
+    description: Purchase a rank on the TrueOG Store
+    aliases: [rank, ranks, store]

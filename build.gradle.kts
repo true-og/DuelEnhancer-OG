@@ -1,8 +1,8 @@
 plugins {
+    id("com.gradleup.shadow") version "8.3.2" // Import shadow API.
     java // Tell gradle this is a java project.
-    id("io.github.goooler.shadow") version "8.1.8" // Import shadow plugin for dependency shading.
     eclipse // Import eclipse plugin for IDE integration.
-    kotlin("jvm") version "1.9.23" // Import kotlin jvm plugin for kotlin/java integration.
+    kotlin("jvm") version "2.0.20" // Import kotlin jvm plugin for kotlin/java integration.
 }
 
 java {
@@ -29,7 +29,7 @@ tasks.named<ProcessResources>("processResources") {
 
 repositories {
     mavenCentral()
-
+    gradlePluginPortal()
     maven {
         url = uri("https://repo.purpurmc.org/snapshots") // Import the PurpurMC Maven Repository.
     }
@@ -46,7 +46,7 @@ dependencies {
     compileOnly("io.github.miniplaceholders:miniplaceholders-api:2.2.3") // Import MiniPlaceholders API.
     compileOnly("com.github.Realizedd.Duels:duels-api:3.5.1") // Build the Duels API.
     
-    // implementation(project(":libs:Utilities-OG"))
+    implementation(project(":libs:Utilities-OG"))
     implementation(project(":libs:GxUI-OG"))
 }
 
@@ -56,39 +56,36 @@ tasks.withType<AbstractArchiveTask>().configureEach { // Ensure reproducible bui
 }
 
 tasks.shadowJar {
+    archiveClassifier.set("") // Use empty string instead of null
+    from("LICENSE") {
+        into("/")
+    }
     exclude("io.github.miniplaceholders.*") // Exclude the MiniPlaceholders package from being shadowed.
     minimize()
 }
 
-tasks.jar {
+tasks.build {
     dependsOn(tasks.shadowJar)
-    archiveClassifier.set("part")
-}
-
-tasks.shadowJar {
-    archiveClassifier.set("") // Use empty string instead of null
-    from("LICENSE") { // Copies license file.
-        into("/") // Sets destination for license file within the completed .jar.
-    }
 }
 
 tasks.jar {
-    dependsOn("shadowJar") // Ensures shadowJar gets run.
+    archiveClassifier.set("part")
 }
 
 tasks.withType<JavaCompile>().configureEach {
     options.compilerArgs.add("-parameters")
-    options.encoding = "UTF-8" // Use UTF-8 encoding universally.
+    options.compilerArgs.add("-Xlint:deprecation") // Triggers deprecation warning messages.
+    options.encoding = "UTF-8"
     options.isFork = true
 }
 
 kotlin {
-    jvmToolchain(17) // Declare kotlin jvm toolchain version.
+    jvmToolchain(17)
 }
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(17) // Declare JDK version.
-        vendor = JvmVendorSpec.GRAAL_VM // Declare JDK distribution.
+        languageVersion = JavaLanguageVersion.of(17)
+        vendor = JvmVendorSpec.GRAAL_VM
     }
 }

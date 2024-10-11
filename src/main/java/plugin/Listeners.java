@@ -11,7 +11,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerGameModeChangeEvent;
 
 import me.realized.duels.api.Duels;
-import net.kyori.adventure.text.minimessage.MiniMessage;
+import net.trueog.utilitiesog.UtilitiesOG;
 
 public class Listeners implements Listener {
 
@@ -42,7 +42,7 @@ public class Listeners implements Listener {
 			if(player.getGameMode() == GameMode.SURVIVAL) {
 
 				// Inform the player that they will stop spectating the match.
-				player.sendMessage(MiniMessage.miniMessage().deserialize("<gray>[<dark_green>True<red>OG<gray>] <gold>Out of bounds! Your Duel spectating session has ended."));
+				UtilitiesOG.trueogMessage(player, "<gray>[<dark_green>True<red>OG<gray>] <gold>Out of bounds! Your Duel spectating session has ended.");
 
 				// Stop the player from spectating the match.
 				api.getSpectateManager().stopSpectating(player);

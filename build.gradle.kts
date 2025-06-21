@@ -43,7 +43,6 @@ dependencies {
     compileOnly("org.purpurmc.purpur:purpur-api:1.19.4-R0.1-SNAPSHOT") // Declare purpur API version to be packaged.
     compileOnly("io.github.miniplaceholders:miniplaceholders-api:2.2.3") // Import MiniPlaceholders API.
     compileOnly("com.github.Realizedd.Duels:duels-api:3.5.1") // Build the Duels API.
-
     compileOnlyApi(project(":libs:Utilities-OG"))
     compileOnlyApi(project(":libs:GxUI-OG"))
 }

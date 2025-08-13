@@ -13,12 +13,16 @@ public class DuelEnhancerOG extends JavaPlugin {
 
         // Register the Event Listener class.
         this.getServer().getPluginManager().registerEvents(new Listeners(), this);
+
     }
 
-    // Runs plugin asynchronously so multiple players can use it at once efficiently.
+    // Runs plugin asynchronously so multiple players can use it at once
+    // efficiently.
     public BukkitTask runTaskAsynchronously(final Runnable run) {
 
         // Schedule Processes.
         return this.getServer().getScheduler().runTaskAsynchronously(this, run);
+
     }
+
 }

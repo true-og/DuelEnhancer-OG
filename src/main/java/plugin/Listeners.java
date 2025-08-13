@@ -24,6 +24,7 @@ public class Listeners implements Listener {
     public static Listeners getInstance() {
 
         return instance;
+
     }
 
     // Listen for a player's game mode changing.
@@ -33,20 +34,24 @@ public class Listeners implements Listener {
         // Store player as object for multiple references.
         Player player = event.getPlayer();
 
-        // Use Duels API to tell if the player whose game mode has changed is spectating a duel.
+        // Use Duels API to tell if the player whose game mode has changed is spectating
+        // a duel.
         if (api.getSpectateManager().isSpectating(player)) {
 
             // If the player was put in survival (presumably by WorldGuard), do this...
             if (player.getGameMode() == GameMode.SURVIVAL) {
 
                 // Inform the player that they will stop spectating the match.
-                UtilitiesOG.trueogMessage(
-                        player,
+                UtilitiesOG.trueogMessage(player,
                         "<gray>[<dark_green>True<red>OG<gray>] <gold>Out of bounds! Your Duel spectating session has ended.");
 
                 // Stop the player from spectating the match.
                 api.getSpectateManager().stopSpectating(player);
+
             }
+
         }
+
     }
+
 }

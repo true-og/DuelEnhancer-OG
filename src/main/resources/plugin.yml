@@ -6,6 +6,5 @@ version: '${version}'
 api-version: '${apiVersion}'
 main: plugin.DuelEnhancerOG
 depend:
-  - GxUI-OG
   - Utilities-OG
   - Duels-OG

@@ -1,7 +1,11 @@
 name: DuelEnhancer-OG
 author: NotAlexNoyle
-description: An extension to Duels by Realizedd made for TrueOG
-website: https://github.com/NotAlexNoyle/DuelEnhancer-OG/
+description: An extension to Duels by Realizedd made for TrueOG Network
+website: https://github.com/true-og/DuelEnhancer-OG/
 version: '${version}'
 api-version: '${apiVersion}'
 main: plugin.DuelEnhancerOG
+depend:
+  - GxUI-OG
+  - Utilities-OG
+  - Duels-OG

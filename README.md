@@ -6,7 +6,7 @@ Features:
 
 - When a Duel spectator is put into survival mode (presumably by worldguard), they will be removed from spectating the match and teleported back to their original location.
 
-Gradle Version: 8.8
+Gradle Version: 8.14.3
 
 Java Version: 17
 

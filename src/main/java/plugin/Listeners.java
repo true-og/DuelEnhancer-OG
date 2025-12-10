@@ -3,8 +3,6 @@
 
 package plugin;
 
-import me.realized.duels.api.Duels;
-import net.trueog.utilitiesog.UtilitiesOG;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
@@ -12,13 +10,16 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerGameModeChangeEvent;
 
+import me.realized.duels.api.Duels;
+import net.trueog.utilitiesog.UtilitiesOG;
+
 public class Listeners implements Listener {
 
     // Declare instance of class as static so multiple players can use it.
     private static Listeners instance;
 
     // Initialize Duels API.
-    private static Duels api = (Duels) Bukkit.getServer().getPluginManager().getPlugin("Duels");
+    private static Duels api = (Duels) Bukkit.getServer().getPluginManager().getPlugin("Duels-OG");
 
     // Return instance of class as static so multiple players can use it.
     public static Listeners getInstance() {

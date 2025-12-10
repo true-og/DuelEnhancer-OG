@@ -1,6 +1,6 @@
 # DuelEnhancer-OG
 
-An extension to [Duels](https://github.com/Realizedd/Duels) by [Realizedd](https://github.com/Realizedd) made for https://trueog.net.
+An extension to [Duels-OG](https://github.com/true-og/Duels-OG) made for https://trueog.net.
 
 Features:
 

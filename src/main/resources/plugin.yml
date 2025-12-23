@@ -7,4 +7,4 @@ api-version: '${apiVersion}'
 main: plugin.DuelEnhancerOG
 depend:
   - Utilities-OG
-  - Duels-OG
+  - Duels

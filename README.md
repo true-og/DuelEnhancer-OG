@@ -1,10 +1,14 @@
 # DuelEnhancer-OG
 
-An extension to [Duels-OG](https://github.com/true-og/Duels-OG) made for https://trueog.net.
+An extension to [Duels](https://github.com/true-og/Duels) made for https://trueog.net.
 
 Features:
 
 - When a Duel spectator is put into survival mode (presumably by worldguard), they will be removed from spectating the match and teleported back to their original location.
+
+Planned Features:
+
+- Re-implement spectator mode using GxUI-OG
 
 Gradle Version: 8.14.3
 

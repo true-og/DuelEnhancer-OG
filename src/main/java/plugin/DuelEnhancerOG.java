@@ -1,18 +1,27 @@
 package plugin;
 
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
+
+import me.realized.duels.api.Duels;
 
 // Extending this class is standard bukkit boilerplate for any plugin, or else the server software won't load the
 // classes.
 public class DuelEnhancerOG extends JavaPlugin {
 
+    // Container for Duels API.
+    private Duels duelsAPI;
+
     // What to do when the plugin is run by the server.
     @Override
     public void onEnable() {
 
+        // Register the Duels plugin instance.
+        this.duelsAPI = (Duels) Bukkit.getServer().getPluginManager().getPlugin("Duels");
+
         // Register the Event Listener class.
-        this.getServer().getPluginManager().registerEvents(new Listeners(), this);
+        this.getServer().getPluginManager().registerEvents(new Listeners(duelsAPI), this);
 
     }
 

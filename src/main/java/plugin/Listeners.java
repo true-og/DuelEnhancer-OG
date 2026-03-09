@@ -3,7 +3,6 @@
 
 package plugin;
 
-import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -15,16 +14,14 @@ import net.trueog.utilitiesog.UtilitiesOG;
 
 public class Listeners implements Listener {
 
-    // Declare instance of class as static so multiple players can use it.
-    private static Listeners instance;
+    // Container to store the received Duels API instance.
+    Duels duelsAPI;
 
-    // Initialize Duels API.
-    private static Duels api = (Duels) Bukkit.getServer().getPluginManager().getPlugin("Duels-OG");
+    // Class constructor.
+    public Listeners(Duels duelsAPI) {
 
-    // Return instance of class as static so multiple players can use it.
-    public static Listeners getInstance() {
-
-        return instance;
+        // Assign the received Duels API instance to the container.
+        this.duelsAPI = duelsAPI;
 
     }
 
@@ -32,26 +29,25 @@ public class Listeners implements Listener {
     @EventHandler
     public void onSurvivalMode(PlayerGameModeChangeEvent event) {
 
-        // Store player as object for multiple references.
-        Player player = event.getPlayer();
+        final Player player = event.getPlayer();
+        final boolean condition = duelsAPI.getSpectateManager().isSpectating(player)
+                && player.getGameMode() == GameMode.SURVIVAL;
 
+        // If the player was put in survival (presumably by WorldGuard), do this...
         // Use Duels API to tell if the player whose game mode has changed is spectating
         // a duel.
-        if (api.getSpectateManager().isSpectating(player)) {
+        if (!condition) {
 
-            // If the player was put in survival (presumably by WorldGuard), do this...
-            if (player.getGameMode() == GameMode.SURVIVAL) {
-
-                // Inform the player that they will stop spectating the match.
-                UtilitiesOG.trueogMessage(player,
-                        "<gray>[<dark_green>True<red>OG<gray>] <gold>Out of bounds! Your Duel spectating session has ended.");
-
-                // Stop the player from spectating the match.
-                api.getSpectateManager().stopSpectating(player);
-
-            }
+            return;
 
         }
+
+        // Inform the player that they will stop spectating the match.
+        UtilitiesOG.trueogMessage(player,
+                "<gray>[<dark_green>True<red>OG<gray>] <gold>Out of bounds! Your Duel spectating session has ended.");
+
+        // Stop the player from spectating the match.
+        duelsAPI.getSpectateManager().stopSpectating(player);
 
     }
 

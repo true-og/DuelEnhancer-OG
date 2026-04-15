@@ -18,7 +18,7 @@ public class DuelEnhancerOG extends JavaPlugin {
     public void onEnable() {
 
         // Register the Duels plugin instance.
-        this.duelsAPI = (Duels) Bukkit.getServer().getPluginManager().getPlugin("Duels");
+        this.duelsAPI = (Duels) Bukkit.getServer().getPluginManager().getPlugin("Duels-OG");
 
         // Register the Event Listener class.
         this.getServer().getPluginManager().registerEvents(new Listeners(duelsAPI), this);

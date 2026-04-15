@@ -1,6 +1,6 @@
 # DuelEnhancer-OG
 
-An extension to [Duels](https://github.com/true-og/Duels) made for https://trueog.net.
+An extension to [Duels-OG](https://github.com/true-og/Duels-OG) for https://trueog.net.
 
 Features:
 
@@ -8,7 +8,7 @@ Features:
 
 Planned Features:
 
-- Re-implement spectator mode using GxUI-OG
+- Re-implement spectator mode using [GxUI-OG](https://github.com/true-og/GxUI-OG).
 
 Gradle Version: 8.14.3
 
